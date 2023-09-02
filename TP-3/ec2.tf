@@ -3,6 +3,15 @@ provider "aws" {
   access_key = ""
   secret_key = ""
 }
+terraform {
+  backend "s3" {
+    bucket = "terraform-backend-michel"
+    key    = "michel.tfstate"
+    region = "us-east-1"
+    access_key = "PUT YOUR OWN"
+    secret_key = "PUT YOUR OWN"
+  }
+}
 
 data "aws_ami" "app_ami" {
   most_recent = true
